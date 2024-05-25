@@ -1,0 +1,87 @@
+html, body, #app, .main-container {
+    height: 100vh;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    margin: 0px;
+    overflow: hidden;
+}
+
+.main-container {
+    display: grid;
+    grid-template-rows: min-content auto;
+}
+
+.menu-container {
+    display: flex;
+    border-bottom: 1px solid gray;
+    & > div {
+        align-self: center;
+        width: 50%;
+        & > span {
+            margin-right: 24px;
+        }
+        & > button + button {
+            margin-left: 12px;
+        }
+    }
+}
+
+.toast {
+    background-color: #4f4f4f;
+    color: white;
+    padding: 8px 6px;
+    border-radius: 4px;
+    opacity: 0;
+    display: block;
+    animation: fadeOut 2s ease-in;
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.toast-container {
+    position: absolute;
+    left: 50%;
+    bottom: 25%;
+    transform: translate(-50%, -50%);
+    & > .toast + .toast {
+        margin-top: 8px;
+    }
+}
+
+.workspace {
+    display: flex;
+    margin: 0px 1px;
+}
+
+.raw-text-container {
+    border-right: 1px solid gray;
+    width: 50%;
+    & > textarea {
+        height: 96vh;
+        width: 100%;
+        padding: 0px;
+        border: 0px;
+        resize: none;
+    }
+}
+
+.md-text-container {
+    width: 50%;
+    & > div {
+        overflow-y: scroll;
+        height: 96vh;
+        width: 100%;
+        & > h1, h2, h3, h4, h5, h6 {
+            margin: 0px;
+        }
+    }
+}
